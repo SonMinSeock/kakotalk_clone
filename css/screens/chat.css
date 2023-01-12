@@ -1,0 +1,205 @@
+#chat-screen {
+  background-color: #abc1da;
+  height: 500vh;
+}
+
+#chat-screen #status-bar {
+  background-color: #abc1da;
+  z-index: 1;
+}
+
+#chat-screen .alt-header {
+  position: fixed;
+  width: 100%;
+  top: 10px;
+  background-color: #abc1da;
+}
+
+.main-chat {
+  margin-top: 120px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+
+@keyframes fadeIn {
+  from {
+    transform: translateY(50px);
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.chat__titmestamp {
+  color: white;
+  background-color: #92a4b2;
+  padding: 8px 15px;
+  font-size: 14px;
+  border-radius: 25px;
+  margin-bottom: 25px;
+  animation: fadeIn 0.8s linear;
+}
+
+@keyframes meassageFadeIn {
+  from {
+    transform: translateX(-170px);
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+@keyframes meassageOwnFadeIn {
+  from {
+    transform: translateX(200px);
+    opacity: 0;
+  }
+
+  to {
+    opacity: 1;
+    transform: none;
+  }
+}
+
+.message-row {
+  opacity: 0;
+  width: 100%;
+  display: flex;
+  margin-bottom: 25px;
+  animation: meassageFadeIn 0.8s linear forwards;
+  animation-delay: 0.8s;
+}
+
+.message-row img {
+  width: 50px;
+  height: 50px;
+  border-radius: 50%;
+  margin-right: 15px;
+}
+
+.message__author {
+  display: block;
+  margin-bottom: 5px;
+}
+
+.message__info {
+  display: flex;
+  align-items: flex-end;
+}
+
+.message__bubble {
+  background-color: white;
+  padding: 13px;
+  font-size: 18px;
+  border-radius: 15px;
+  border-top-left-radius: 0px;
+  margin-right: 0px;
+  margin-left: 5px;
+}
+
+.message__author,
+.message__time {
+  opacity: 0.8;
+  font-size: 13px;
+}
+
+.message-row--own {
+  opacity: 0;
+  justify-content: flex-end;
+  animation: meassageOwnFadeIn 0.8s linear forwards;
+  animation-delay: 2s;
+}
+
+.message-row--own .message__bubble {
+  background-color: var(--yellow);
+  border-top-left-radius: 15px;
+  border-top-right-radius: 0px;
+}
+
+.message-row--own .message__info {
+  flex-direction: row-reverse;
+}
+
+.refly {
+  position: fixed;
+  bottom: 0;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  width: 100%;
+  background-color: white;
+  padding: 5px 25px;
+  transition: all 0.3s ease-in-out;
+}
+
+.refly .refly__column:first-child {
+  width: 10%;
+}
+
+.refly .refly__column:last-child {
+  width: 90%;
+  position: relative;
+}
+
+.refly input {
+  height: 30px;
+  width: 100%;
+  border: var(--main-border);
+  border-radius: 20px;
+  padding: 10px;
+  transition: all 0.3s ease-in-out;
+}
+
+.refly i {
+  opacity: 0.5;
+}
+
+.refly__column:last-child > i,
+.refly__column:last-child button {
+  position: absolute;
+  right: 5px;
+  top: 1px;
+}
+
+.refly__column:last-child > i {
+  top: 15px;
+  right: 45px;
+}
+
+.refly__column button {
+  background-color: var(--yellow);
+  border: none;
+  width: 30px;
+  height: 30px;
+  border-radius: 50%;
+}
+
+.refly__column button i {
+  opacity: 1;
+}
+.refly__column button:focus,
+.refly__column button:active {
+  outline: none;
+}
+
+.refly:focus-within .refly__column:first-child,
+.refly:focus-within .fa-smile-wink,
+.refly:focus-within button {
+  opacity: 0;
+}
+
+.refly:focus-within input {
+  width: 95vw;
+  transform: translateX(-13%) translateY(-80px);
+}
+
+.refly:focus-within {
+  transform: translateY(80px);
+}

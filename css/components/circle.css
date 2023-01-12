@@ -1,0 +1,8 @@
+.circle {
+  background-color: tomato;
+  width: 5px;
+  height: 5px;
+  border-radius: 13px;
+  position: absolute;
+  right: -5px;
+}
